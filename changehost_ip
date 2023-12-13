@@ -1,0 +1,17 @@
+Get-NetIPAddress
+# Check InterfaceIndex
+
+$NewIP = " "
+$Prefix = " "
+$NewGTWY = " "
+$NewHost = " "
+$LocalACC = "DOMAIN/account "
+$INTindex = " "
+
+
+#Run with Powershell with administrator authority
+#Change IPaddress
+New-NetIPAddress -InterfaceIndex $INTindex - IPAddress $NewIP -PrefixLength $Prefix -DefaultGateway $NewGTWY
+
+#Change Hostname
+Rename-Computer -NewName $NewHost -DomainCredential $LocalACC -Restart
